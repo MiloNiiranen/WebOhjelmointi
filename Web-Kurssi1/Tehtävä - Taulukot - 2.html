@@ -3,37 +3,42 @@
 <head>
     <title>Yhteystiedot</title>
     <style>
-        table {
-            border-collapse: separate; 
-            border: 2px solid; 
-            width: 50%;
-            margin: 20px;
+        table, th, td{ 
+            border: 1px solid black; 
         }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border: 1px double;
+        #puhelin{
+            height:50px
+            rowspan = "2"
         }
+
+        
+
+        
 
     </style>
 </head>
 <body>
 
 
-    <table>
+    <table style = "width: 30%;">
         <tr>
-            <th>Nimi</th>
-            <th>KirjoitaOmanimesi tähän</th>
+            
+            <th>Nimi:</th>
+            <td>KirjoitaOmanimesi tähän</td>
         </tr>
-        <tr>
-            <td>Puhelinnumero</td>
+
+        <tr> 
+            <th id="puhelin" rowspan = "2">Puhelin:</th>
             <td>+358 429 294</td>
+            
         </tr>
+
         <tr>
-            <td></td>
-            <td>+123 456 789</td>
+            <td>+358 670 476</td>
         </tr>
+
+        
     </table>
 
 </body>
