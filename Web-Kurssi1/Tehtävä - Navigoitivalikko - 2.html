@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    text-decoration: none;
+    margin: 0;
+}
+
+li{
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+}
+
+ul{
+    list-style-type: none;
+    background-color: black;
+    border-radius: 8px;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+li a:hover {
+  background-color:white;
+  color: black;
+
+}
+
+iframe {
+    width: 1500px; 
+    height: 600px;
+    border: none;
+    position: relative;
+    top: 50px;
+}
+
+</style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="https://liiga.fi/fi" onclick="loadPage('https://liiga.fi/fi'); return false;">Liiga</a></li>
+        <li><a href="file:///C:/Users/gr275821/source/repos/WebOhjelmointi/Web-Kurssi1/Kysely.html">Kysely</a></li>
+        <li><a href="https://yle.fi/">yle</a></li>
+        <li><a href="https://www.google.fi/?hl=fi">Google</a></li>
+    </ul>
+
+    <div class="content">
+        <iframe id="iframeContent"></iframe>
+    </div>
+
+    <script>
+        function loadPage(url) {
+            document.getElementById('iframeContent').src = url;
+        }
+    </script>
+</body>
