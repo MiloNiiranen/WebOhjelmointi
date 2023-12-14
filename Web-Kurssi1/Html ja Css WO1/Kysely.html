@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.Nimet{
+    margin: 10px;
+}
+
+.submit{
+    margin-top: 5px;
+}
+
+.Osoiteet{
+    margin: 10px;
+    position: relative;
+}
+.kengänkoko{
+    position: relative;
+    left: 250px;
+    bottom: 555px;
+    margin: 10px;
+}
+
+.ruoat{
+    position: relative;
+    left: 255px;
+    bottom: 520px;
+    margin: 10px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Omat tiedot</h1>
+<div class="Nimet">
+    <form>
+        <label for="fname">Etunimi:</label><br>
+        <input type="text"><br>
+        <label for="lname">Sukunimi:</label><br>
+        <input type="text"><br>
+        <label for="fname">Syntymä-aika:</label><br>
+        <input type="date" id="birthdate" name="birthdate" required min="1900-01-01" max="2018-01-01"><br>
+        <div class="submit"><input type="submit"></div>
+    </form>
+</div>
+
+<div class="Osoiteet">
+    <h2>Osoite</h2>
+    <form>
+        <label for="fname">Postinumero:</label><br>
+        <input type="text"><br>
+        <label for="lname">Postitoimipaikka:</label><br>
+        <input type="text"><br>
+        <label for="lname">Sähköpostiosoite:</label><br>
+        <input type="text"><br>
+        <div class="submit"><input type="submit"></div>
+    </form>
+
+    <h2>Sukupuoli</h2>
+    <form>
+        <input type="radio" id="Mies" name="sukupuoli" value="Mies">
+        <label for="Mies">Mies</label><br>
+        <input type="radio" id="sukupuoli" name="sukupuoli" value="Nainen">
+        <label for="Nainen">Nainen</label><br>
+        <input type="radio" id="Muu" name="sukupuoli" value="Muu">
+        <label for="Muu">Muu</label>
+    </form>
+<div class="kengänkoko">
+    <h2>Kengän numero</h2>
+    <form>
+        <label for="kenkä">Valitse kengän numero:</label>
+        <select id="kenkä" name="kenkä">
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+            <option value="46">46</option>
+            <option value="47">47</option>
+            <option value="48">48</option>
+            <option value="49">49</option>
+            <option value="50">50</option>
+          </select>          
+    </form>
+</div>
+
+<div class="ruoat">
+    <form>
+        <h2>Lisäpalvelut</h2>
+        <input type="checkbox" id="breakfast" name="services[]" value="aamiainen">
+        <label for="breakfast">Aamiainen</label><br>
+      
+        <input type="checkbox" id="dinner" name="services[]" value="päivällinen">
+        <label for="dinner">Päivällinen</label><br>
+      
+        <input type="checkbox" id="snack" name="services[]" value="välipala">
+        <label for="snack">Välipala</label><br>
+      
+        <input type="checkbox" id="supper" name="services[]" value="iltapala">
+        <label for="supper">Iltapala</label><br>
+      
+        <div class="submit"><input type="submit"></div>
+      </form>
+    </form>
+</div>
+
+</body>
