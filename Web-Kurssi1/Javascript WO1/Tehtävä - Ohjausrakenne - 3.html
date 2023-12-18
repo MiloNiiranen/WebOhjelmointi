@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    var paistaako = prompt("Pistaako aurinko? (kyllä / ei)")
+    var sataako = prompt("Sataako vettä? (kyllä / ei)")
+    var lämpötila = prompt("Onko lämpötila > 0? (kyllä / ei)")
+
+    if(paistaako == "kyllä" && sataako == "kyllä" && lämpötila == "kyllä")
+    {
+        alert("Aurinko paistaa ja vettä sataa taitaa tulla kesä." )
+    }
+
+    else if(paistaako == "ei" && sataako == "kyllä" && lämpötila == "kyllä")
+    {
+        alert("Syksy saapui lehdet vei tuuli mennessään." )
+    }
+
+    else if(paistaako == "ei" && sataako == "ei" && lämpötila == "kyllä" || paistaako == "kyllä" && sataako == "ei" && lämpötila == "kyllä")
+    {
+        alert("Jo joutui armas aika ja suvi suloinen.")
+    }
+
+    else if(paistaako == "kyllä" && sataako == "kyllä" && lampotila == "ei")
+    {
+        alert("Kevät saapui, aurinko paistaa ja vettä sataa.")
+    }
+
+    else if(paistaako == "kyllä" && sataako == "ei" && lampotila == "ei")
+    {
+        alert("Hyvää talvipäivää, aurinko paistaa ja pakkanen kirpeä.")
+    }
+
+    else if(paistaako == "ei" && sataako == "ei" && lampotila == "ei")
+    {
+        alert("Pimeä ja kylmä yö, tähdet tuikkivat taivaalla.")
+    }
+
+    else
+    {
+        alert("Tuntematon säätila.")
+    }
+</script>
+</head>
+
+<body>
+    
+</body>
+</html>

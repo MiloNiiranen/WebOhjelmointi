@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ikäkysely</title>
+</head>
+<body>
+
+  <form id="ikaForm">
+    <label for="ika">Kuinka vanha olet?</label>
+    <input type="text" id="ika" name="ika">
+    <button type="button" onclick="tarkistaIka()">Tarkista ikä</button>
+  </form>
+
+  <script>
+    function tarkistaIka() {
+      var ikaInput = document.getElementById("ika");
+      var ikaString = ikaInput.value;
+      var ika = parseInt(ikaString);
+
+      if (isNaN(ika)) {
+        alert('Virheellinen syöte. Syötä ikä numeroina.');
+      } else if (ika < 18) {
+        alert('Olet ala-ikäinen');
+      } else {
+        alert('Olet täysi-ikäinen');
+      }
+    }
+  </script>
+
+</body>
+</html>
