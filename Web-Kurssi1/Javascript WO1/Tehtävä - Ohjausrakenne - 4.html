@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    let suositusmaara;
+    let annokset;
+
+    function kysySuositusmaara() {
+        suositusmaara = prompt("Syötä lääkkeen suositusmäärä:");
+    }
+
+    function annaLaakeannokset() {
+        if (!suositusmaara) {
+            alert("Aseta ensin suositusmäärä!");
+            return;
+        }
+
+        annokset = prompt("Syötä montako annosta:");
+
+        
+        if (isNaN(annokset)) {
+            alert("Virheellinen syöte. Anna numero.");
+            return;  
+        }
+       
+
+        naytaTiedot();
+    }
+
+    function naytaTiedot() {
+        let suurinAnnos = 0;
+        let viimeisinAnnos = 0;
+        let edellinenAnnos = 0;
+        let ylitettySuositus = false;
+
+        
+        for (let i = 1; i <= annokset; i++) {
+            let annos = prompt("Syötä annos #" + i + ":");
+            annos = parseInt(annos);
+
+            if (isNaN(annos)) {
+                alert("Virheellinen syöte. Anna numero.");
+                i--; 
+            } else {
+                
+
+                if (annos > suurinAnnos) {
+                    suurinAnnos = annos;
+                }
+
+                if (i > 1) {
+                    if (annos > edellinenAnnos) {
+                        alert("Viimeisin annos oli suurempi kuin edellinen.");
+                    } else if (annos < edellinenAnnos) {
+                        alert("Viimeisin annos oli pienempi kuin edellinen.");
+                    }
+                }
+
+                viimeisinAnnos = annos;
+                edellinenAnnos = annos;
+
+                
+                if (viimeisinAnnos > suositusmaara) {
+                    ylitettySuositus = true;
+                    break;
+                }
+            }
+        }
+
+       
+        alert("Suurin annettu annos: " + suurinAnnos);
+        if (ylitettySuositus) {
+            alert("Suositusmäärä on ylitetty.");
+        } else {
+            alert("Suositusmäärä ei ole ylitetty.");
+        }
+    }
+</script>
+</head>
+<body>
+    <button onclick="kysySuositusmaara()">Syötä lääkkeen suositusmäärä</button>
+    <button onclick="annaLaakeannokset()">Syötä annosten määrä</button>
+</body>
+</html>

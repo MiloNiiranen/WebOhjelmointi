@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lomake</title>
+
+    <style>
+        /* Muotoilen sivun käyttäen css, tehtävässä olevan sivun näköiseksi.*/       
+        body 
+        {
+            background-color: gray;
+            color: white;
+            margin-left: 30px;
+        }
+
+        input 
+        {
+            margin-bottom: 15px;
+        }
+
+        textarea 
+        {
+            width: 200px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        #kiitosviesti 
+        {
+            display: none;
+            font-size: 5em;
+            text-align: center;
+        }
+    </style>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Tarvitavat asiat jQueryä varten. -->
+
+    <script>
+        $(document).ready(function() 
+        {
+            $("#date").datepicker();
+
+            $("form").submit(function(event) // Kun painaa "Lähetä" nappia niin lomake katoaa ja tulee näkyviin kiitos viesti.
+            {
+                $("form, h1, h2, p").fadeOut("slow", function() //jQueryn fadeout mikä piilottaa hitaasti lomakkeen elementit.
+                {
+                  
+                    $("#kiitosviesti").fadeIn("slow"); // fade in joka tuo kiitos viestin näkyviin hitaasti. 
+                    näytäKiitosViesti();
+                });
+            });
+        });
+
+        function näytäKiitosViesti() // funktio jossa määritellään kiitos viesti.
+        {
+            var kiitosviesti = $("#kiitosviesti");
+            kiitosviesti.html("Kiitos " + $("#name").val() + "! Viestisi on vastaanotettu.");
+        }
+    </script>
+
+</head>
+
+<body> <!-- Lisään html komponentit sivulle --> 
+        <h1>Lomakkeen tietojen tarkistus JavaScriptillä</h1>
+        <p>Tässä harjoitellaan JavaScriptin käyttöä tekemällä lomakkeen tarkistus.</p>
+        <h2>Yhteyslomake</h2>
+    
+
+        <form action="">
+            <label for="name" id="name">* Etunimi</label><br>
+            <input type="text"><br>
+
+            <label for="lastname">* Sukunimi</label><br>
+            <input type="text"><br>
+
+            <label for="email">* Sähköposti</label><br>
+            <input type="text"><br>
+
+            <label for="address">Lähiosoite</label><br>
+            <input type="text"><br>
+
+            <label for="postnumber">Postinumero</label><br>
+            <input type="number"><br>
+
+            <label for="post office">Postitoimipaikka</label><br>
+            <input type="text"><br>
+            
+            <label for="phonenumber">Puhelin</label><br>
+            <input type="tel" placeholder="+358 45 1897632" pattern="+[0-9]{3} [0-9]{2} [0-9]{9}"><br>
+
+            <label for="date">Pvm</label><br>
+            <input type="text" id="date"><br>
+
+            <label for="message">* Viesti</label><br>
+            <textarea name="" id="textarea" cols="30" rows="10"></textarea><br>
+
+            <input type="submit" value="Lähetä" id="nappi">
+        </form>
+
+        <div id="kiitosviesti"></div>
+</body>
+</html>
