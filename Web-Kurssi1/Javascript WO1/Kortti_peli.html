@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korttipeli</title>
+</head>
+<body>
+<h1>Korttipeli</h1>
+<button onclick="aloitaPeli()">Aloita peli</button>
+
+<script>
+    function arvoKortti() 
+    {
+        return Math.floor(Math.random() * 10) + 1; // Arvotaan luku 1-10 väliltä
+    }
+
+    function laskePisteet(kortit) 
+    {
+        return kortit.reduce((summa, kortti) => summa + kortti, 0);
+    }
+
+    function aloitaPeli() 
+    {
+        var pelaajanKortit = [arvoKortti(), arvoKortti()];
+        var tietokoneenKortit = [arvoKortti(), arvoKortti()];
+
+        var pelaajanPisteet = laskePisteet(pelaajanKortit);
+
+        while (confirm(`Sinulla on ${pelaajanPisteet}\nHaluatko nostaa lisää kortteja?`)) 
+        {
+            pelaajanKortit.push(arvoKortti());
+            pelaajanPisteet = laskePisteet(pelaajanKortit);
+
+            if (pelaajanPisteet > 21) {
+                alert(`Hävisit! Sinulla on ${pelaajanPisteet}, tietokoneella on ${laskePisteet(tietokoneenKortit)}.`);
+                return;
+            }
+        }
+        while (laskePisteet(tietokoneenKortit) < 17) 
+        {
+            tietokoneenKortit.push(arvoKortti());
+        }
+
+        var tietokoneenPisteet = laskePisteet(tietokoneenKortit);
+
+        if (tietokoneenPisteet > 21 || pelaajanPisteet > tietokoneenPisteet) 
+        {
+            alert(`Voitit! Sinulla on ${pelaajanPisteet}, tietokoneella on ${tietokoneenPisteet}.`);
+        }
+
+        else if (pelaajanPisteet === tietokoneenPisteet) 
+        {
+            alert(`Tasapeli! Sinulla on ${pelaajanPisteet}, tietokoneella on ${tietokoneenPisteet}.`);
+        }
+        
+        else
+        {
+            alert(`Hävisit! Sinulla on ${pelaajanPisteet}, tietokoneella on ${tietokoneenPisteet}.`);
+        }
+    }
+    
+</script>
+</body>
+</html>

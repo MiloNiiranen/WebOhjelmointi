@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+</style>
+<body>
+    <h1>Lukumuunnos</h1>
+
+    <input type="text" id="numberInput"><br>
+    <button onclick="Lukumuunnos()">Muunna</button>
+    <p id="result"></p>
+
+    <h1>Käänteinenlukumuunnos</h1>
+    <button onclick="KäänteinenLukumuunnos()">Muunna</button>
+    <input type="text" id="numberInput2"><br>
+    <p id="result2"></p>
+
+    <script>
+        function Lukumuunnos() {
+            var inputElement = document.getElementById("numberInput");
+            var inputValue = inputElement.value;
+            var result = inputValue % 2;
+
+            var resultElement = document.getElementById("result");
+            resultElement.textContent = result;
+        }
+
+        function KäänteinenLukumuunnos() {
+            var inputElement = document.getElementById("numberInput2");
+            var inputValue = inputElement.value;
+            var binaryResult = Binääri(inputValue);
+
+            var resultElement = document.getElementById("result2");
+            resultElement.textContent = "Käänteinen binääriluku: " + binaryResult;
+        }
+
+        function Binääri(decimalInput) {
+            var binaryResult = '';
+
+            while (decimalInput > 0) {
+                var remainder = decimalInput % 2;
+                binaryResult = remainder + binaryResult;
+                decimalInput = Math.floor(decimalInput / 2);
+            }
+
+            return binaryResult !== '' ? binaryResult : '0';
+        }
+    </script>
+</body>
+</html>

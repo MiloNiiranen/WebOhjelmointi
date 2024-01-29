@@ -1,0 +1,41 @@
+<!DOCTYPE hrml>
+<html>
+<head>
+
+</head>
+<body>
+<h1>Nopan heitto</h1>
+
+<button onclick="NopanHeitto()">Heitänoppaa</button>
+<p id="result"></p>
+<p id="isoinkäsi"></p>
+<p id="summa"></p>
+<script>
+var suurinHeitto = 0;
+var heittojenSumma = 0;
+
+function NopanHeitto()
+{
+    var noppa1;
+    var noppa2;
+
+    noppa1 = Math.floor(Math.random() * 6) + 1;
+    noppa2 = Math.floor(Math.random() * 6) + 1;
+    noppienarvo = noppa1 + noppa2;
+
+    
+
+    if (noppienarvo > suurinHeitto) 
+    {
+        suurinHeitto = noppienarvo;
+    }
+
+    heittojenSumma += noppienarvo;
+
+    document.getElementById("result").innerHTML = "Noppien arvo: " + noppienarvo;
+    document.getElementById("isoinkäsi").innerHTML = "Suurin heitto: " + suurinHeitto;
+    document.getElementById("summa").innerHTML = "Heittojen summa: " + heittojenSumma;
+}
+</script>
+</body>
+</html>
